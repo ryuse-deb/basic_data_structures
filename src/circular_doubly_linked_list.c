@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "ds_status.h"
+//#include "ds_status.h"
+#include "circular_doubly_linked_list.h"
 
 // DATA AND STRUCT DEFINITION===========================================
 typedef struct _circ_node {
@@ -26,7 +27,7 @@ CircList* CircList_create(void) {
 	return list;
 	}
 
-CNode* Node_create(int value) {
+CNode* CircNode_create(int value) {
 	CNode* node = calloc(1, sizeof(CNode));
 	node->val = value;
 	node->next = node;
@@ -35,7 +36,7 @@ CNode* Node_create(int value) {
 	return node;
 	}
 
-void Node_destroy(CNode** node_ref) {
+void CircNode_destroy(CNode** node_ref) {
 	CNode* node = *node_ref;
 	free(node);
 	*node_ref = NULL;
@@ -65,7 +66,7 @@ ds_status CircList_add_head(CircList* list, int value) {
 		}
 	
 	else{
-		CNode* node = Node_create(value);
+		CNode* node = CircNode_create(value);
 		
 		if(list->head == NULL) {
 			list->head = node;
@@ -91,7 +92,7 @@ ds_status CircList_add_tail(CircList* list, int value) {
 		return DS_NULL;
 		}
 	else{
-		CNode* node = Node_create(value);
+		CNode* node = CircNode_create(value);
 	
 		if(list->head == NULL) {
 			list->head = node;
@@ -115,8 +116,8 @@ ds_status CircList_remove_head(CircList* list) {
 	if(list == NULL) {
 		return DS_NULL;
 		}
-	else{		
-		if(list->head == NULL) {
+	else{
+		if(CircList_IsEmpty(list)) {
 			return DS_EMPTY;
 			}
 		else{
@@ -143,8 +144,8 @@ ds_status CircList_remove_tail(CircList* list) {
 		return DS_NULL;
 		}
 	else{
-		if(list->head == NULL) {
-			return DS_EMPTY; //Lista vazia
+		if(CircList_IsEmpty(list)) {
+			return DS_EMPTY;
 			}
 		else{
 			CNode* node = list->tail;
@@ -170,7 +171,7 @@ ds_status CircList_remove_first_found(CircList* list, int value) {
 		return DS_NULL;
 		}
 	else{
-		if(list->head == NULL) {
+		if(CircList_IsEmpty(list)) {
 			return DS_EMPTY;
 			}
 		else{
@@ -220,54 +221,59 @@ ds_status CircList_remove_all_found(CircList* list, int value) {
 	if(list == NULL) {
 		return DS_NULL;
 		}
-	else{		
-		CNode* node = list->head;
-		CNode* aux = NULL;
-		int size = (int)list->size;	
-
-		for(int i = 0; i < size; ++i) {
-			if(node->val != value) {
-				node = node->next;
-				}
-			else {
-				/*
-				 * Há 4 possibilidades, do nó estar:
-				 * • A lista possuir apenas um nó;
-				 * • Inicio;
-				 * • Meio;
-				 * • Final.
-				*/
-				
-				//Se houver apenas um nó:
-				if(list->size == 1){
-					free(node);
-					list->head = NULL;
-					list->tail = NULL;
-					break;
-					}
-				else { //Se houver mais de um nó
-					node->prev->next = node->next;
-					node->next->prev = node->prev;
-					
-					if(node == list->head) { //Se estiver na cabeça
-						list->head = node->next;
-						}
-					if(node == list->tail) { //Se estiver na calda
-						list->tail = node->prev;
-						}
-					aux = node->next;
-					free(node);
-					node = aux;
-					}
-				list->size--;
-				}
-		
+	else{
+		if(CircList_IsEmpty(list)) {
+			return DS_EMPTY;
 			}
-		return DS_OK;		
+		else {
+			CNode* node = list->head;
+			CNode* aux = NULL;
+			int size = (int)list->size;	
+
+			for(int i = 0; i < size; ++i) {
+				if(node->val != value) {
+					node = node->next;
+					}
+				else {
+					/*
+					 * Há 4 possibilidades, do nó estar:
+					 * • A lista possuir apenas um nó;
+					 * • Inicio;
+					 * • Meio;
+					 * • Final.
+					*/
+					
+					//Se houver apenas um nó:
+					if(list->size == 1){
+						free(node);
+						list->head = NULL;
+						list->tail = NULL;
+						break;
+						}
+					else { //Se houver mais de um nó
+						node->prev->next = node->next;
+						node->next->prev = node->prev;
+						
+						if(node == list->head) { //Se estiver na cabeça
+							list->head = node->next;
+							}
+						if(node == list->tail) { //Se estiver na calda
+							list->tail = node->prev;
+							}
+						aux = node->next;
+						free(node);
+						node = aux;
+						}
+					list->size--;
+					}
+			
+				}
+				return DS_OK;
+			}
 		}
 	}
 
-// PRINTERS-------------------------------------------------------------
+// INFO-----------------------------------------------------------------
 ds_status CircList_print(CircList* list) {
 	if(list == NULL) {
 		return DS_NULL;
@@ -276,7 +282,7 @@ ds_status CircList_print(CircList* list) {
 	else{
 		CNode* node = list->head;
 		
-		if(list->head == NULL) {
+		if(CircList_IsEmpty(list)) {
 			return DS_EMPTY;
 			}
 		
@@ -295,4 +301,8 @@ int CircList_size(CircList* list) {
 		return -1;
 		}
 	return (int)list->size;	
+	}
+
+int CircList_IsEmpty(CircList* list) {
+	return(list->head == NULL);
 	}

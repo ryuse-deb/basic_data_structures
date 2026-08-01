@@ -21,5 +21,6 @@ ds_status List_remove_first_found(List*, int);
 ds_status List_remove_all_found(List*, int);
 
 ds_status List_print(List *);
+int List_IsEmpty(List*);
 
 #endif

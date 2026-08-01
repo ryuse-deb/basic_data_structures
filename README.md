@@ -7,8 +7,8 @@
 
 ## Estruturas implementadas
 - [X] Lista duplamente encadeadas;
-- [ ] Lista circular;
-- [ ] Pilha;
+- [X] Lista circular;
+- [X] Pilha;
 - [ ] Fila;
 
 ## Organização do projeto

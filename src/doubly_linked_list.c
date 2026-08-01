@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 #include "doubly_linked_list.h"
-#include "ds_status.h"
+//#include "ds_status.h"
 
 // DATA AND STRUCTS=====================================================
 
@@ -129,7 +129,7 @@ ds_status List_remove_head(List* list) {
 		}
 	
 	else {
-		if(list->head == NULL) {
+		if(List_IsEmpty(list)) {
 			return DS_EMPTY;
 			}
 		else{
@@ -156,7 +156,7 @@ ds_status List_remove_tail(List* list) {
 		}
 		
 	else {
-		if(list->head == NULL) {
+		if(List_IsEmpty(list)) {
 			return DS_EMPTY;
 			}
 		else {
@@ -184,7 +184,7 @@ ds_status List_remove_first_found(List* list, int value) {
 		}
 	
 	else {	
-		if(list->head == NULL) {
+		if(List_IsEmpty(list)) {
 			return DS_EMPTY;
 			}
 		else {
@@ -228,7 +228,7 @@ ds_status List_remove_all_found(List* list, int value) {
 		return DS_NULL;
 		}
 	else {
-		if(list->head == NULL) {
+		if(List_IsEmpty(list)) {
 			return DS_EMPTY;
 			}
 		else {
@@ -266,14 +266,14 @@ ds_status List_remove_all_found(List* list, int value) {
 		}
 	}
 
-// PRINTERS=============================================================
+// INFO=================================================================
 ds_status List_print(List * list) {
 	if(list==NULL) {
 		return DS_NULL;;
 	}
 	
 	else {
-		if(list->head == NULL) {
+		if(List_IsEmpty(list)) {
 			return DS_EMPTY;
 		}
 		else {
@@ -286,4 +286,8 @@ ds_status List_print(List * list) {
 			return DS_OK;
 			}
 		}
+	}
+	
+int List_IsEmpty(List* list) {
+	return (list->head == NULL);
 	}

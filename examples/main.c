@@ -1,6 +1,8 @@
 #include <stdio.h>
+
 #include "doubly_linked_list.h"
 #include "circular_doubly_linked_list.h"
+#include "static_stack.h"
 
 int main(void) {
 
@@ -92,6 +94,32 @@ int main(void) {
 	puts("");
 	*/
 	
+// TESTE DA PILHA ESTÁTICA==============================================
+	/*
+	StaticStack* sstack1 = StaticStack_create(5);
+	
+	StaticStack_push(sstack1, 5);
+	StaticStack_push(sstack1, 10);
+	StaticStack_push(sstack1, 15);
+	StaticStack_push(sstack1, 20);
+	StaticStack_push(sstack1, 25);
+
+	StaticStack_print(sstack1);
+	puts("");
+
+	int val = StaticStack_peek(sstack1);
+	printf("peek: %d\n\n", val);
+	
+	StaticStack_pop(sstack1);
+	StaticStack_pop(sstack1);
+	StaticStack_print(sstack1);
+	puts("");
+	
+	StaticStack_destroy(&sstack1);
+	StaticStack_print(sstack1);
+	*/
+	
+
 	return 0;
 }
 

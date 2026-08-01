@@ -17,12 +17,13 @@ void CircList_destroy(CircList**);
 
 ds_status CircList_add_head(CircList*, int);
 ds_status CircList_add_tail(CircList*, int);
-ds_status CircList_remove_head(CircList* list);
-ds_status CircList_remove_tail(CircList* list);
+ds_status CircList_remove_head(CircList*);
+ds_status CircList_remove_tail(CircList* );
 ds_status CircList_remove_first_found(CircList*, int);
 ds_status CircList_remove_all_found(CircList*, int);
 
 ds_status CircList_print(CircList*);
 int CircList_size(CircList* list);
+int CircList_IsEmpty(CircList* list);
 
 #endif
