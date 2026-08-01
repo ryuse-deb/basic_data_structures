@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-//#include "ds_status.h"
 #include "circular_doubly_linked_list.h"
 
 // DATA AND STRUCT DEFINITION===========================================

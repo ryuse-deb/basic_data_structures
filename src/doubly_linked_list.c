@@ -267,7 +267,7 @@ ds_status List_remove_all_found(List* list, int value) {
 	}
 
 // INFO=================================================================
-ds_status List_print(List * list) {
+ds_status List_print(const List * list) {
 	if(list==NULL) {
 		return DS_NULL;;
 	}
@@ -288,6 +288,10 @@ ds_status List_print(List * list) {
 		}
 	}
 	
-int List_IsEmpty(List* list) {
+int List_IsEmpty(const List* list) {
 	return (list->head == NULL);
+	}
+	
+int List_return_head(const List* list) {
+	return list->head->val;
 	}

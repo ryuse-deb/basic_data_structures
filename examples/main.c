@@ -3,6 +3,7 @@
 #include "doubly_linked_list.h"
 #include "circular_doubly_linked_list.h"
 #include "static_stack.h"
+#include "dinamic_stack.h"
 
 int main(void) {
 
@@ -118,7 +119,36 @@ int main(void) {
 	StaticStack_destroy(&sstack1);
 	StaticStack_print(sstack1);
 	*/
+
+// DINAMIC STACK TEST===================================================
+	/*
+	DinamicStack* dstack1 = DinamicStack_create();
 	
+	DinamicStack_print(dstack1);
+	
+	DinamicStack_push(dstack1, 5);
+	DinamicStack_push(dstack1, 10);
+	DinamicStack_push(dstack1, 15);
+	DinamicStack_push(dstack1, 20);
+	DinamicStack_push(dstack1, 25);
+	DinamicStack_push(dstack1, 30);
+	DinamicStack_push(dstack1, 35);
+	DinamicStack_push(dstack1, 40);
+	DinamicStack_print(dstack1);
+	puts("");
+
+	DinamicStack_pop(dstack1);
+	DinamicStack_print(dstack1);
+	puts("");
+	
+	int val1 = DinamicStack_peek(dstack1);
+	printf("peek: %d\n", val1);
+	
+	DinamicStack_destroy(&dstack1);
+	DinamicStack_print(dstack1);
+	puts("");
+
+	*/
 
 	return 0;
 }

@@ -20,7 +20,8 @@ ds_status List_remove_tail(List*);
 ds_status List_remove_first_found(List*, int);
 ds_status List_remove_all_found(List*, int);
 
-ds_status List_print(List *);
-int List_IsEmpty(List*);
+ds_status List_print(const List *);
+int List_IsEmpty(const List*);
+int List_return_head(const List*);
 
 #endif

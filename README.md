@@ -9,7 +9,7 @@
 - [X] Lista duplamente encadeadas;
 - [X] Lista circular;
 - [X] Pilha estática;
-- [ ] Pilha dinâmica;
+- [X] Pilha dinâmica;
 - [ ] Fila estática;
 - [ ] Fila dinâmica.
 
