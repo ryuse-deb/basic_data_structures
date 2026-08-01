@@ -13,9 +13,9 @@
 
 ## Organização do projeto
 
-src/
-include/
-obj/
-examples/
-Makefile
+src/ <br>
+include/ <br>
+obj/ <br>
+examples/ <br>
+Makefile <br>
 README.md
