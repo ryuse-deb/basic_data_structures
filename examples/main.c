@@ -4,6 +4,7 @@
 #include "circular_doubly_linked_list.h"
 #include "static_stack.h"
 #include "dinamic_stack.h"
+#include "static_queue.h"
 
 int main(void) {
 
@@ -149,7 +150,29 @@ int main(void) {
 	puts("");
 
 	*/
-
+	
+// STATIC QUEUE TEST====================================================
+	/*
+	StaticQueue* SQueue1 = StaticQueue_create(5);
+	
+	StaticQueue_enqueue(SQueue1, 5);
+	StaticQueue_enqueue(SQueue1, 10);
+	StaticQueue_enqueue(SQueue1, 15);
+	StaticQueue_enqueue(SQueue1, 20);
+	StaticQueue_enqueue(SQueue1, 25);
+	StaticQueue_enqueue(SQueue1, 30);
+	StaticQueue_print(SQueue1);
+	puts("");
+	
+	StaticQueue_dequeue(SQueue1);
+	StaticQueue_print(SQueue1);
+	puts("");
+	
+	StaticQueue_destroy(&SQueue1);
+	StaticQueue_print(SQueue1);
+	puts("");
+	*/
+	
 	return 0;
 }
 

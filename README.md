@@ -10,7 +10,7 @@
 - [X] Lista circular;
 - [X] Pilha estática;
 - [X] Pilha dinâmica;
-- [ ] Fila estática;
+- [X] Fila estática;
 - [ ] Fila dinâmica.
 
 ## Organização do projeto
