@@ -8,8 +8,10 @@
 ## Estruturas implementadas
 - [X] Lista duplamente encadeadas;
 - [X] Lista circular;
-- [X] Pilha;
-- [ ] Fila;
+- [X] Pilha estática;
+- [ ] Pilha dinâmica;
+- [ ] Fila estática;
+- [ ] Fila dinâmica.
 
 ## Organização do projeto
 
