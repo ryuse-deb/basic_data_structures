@@ -11,7 +11,7 @@
 - [X] Pilha estática;
 - [X] Pilha dinâmica;
 - [X] Fila estática;
-- [ ] Fila dinâmica.
+- [X] Fila dinâmica.
 
 ## Organização do projeto
 

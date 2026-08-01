@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "dinamic_stack.h"
-#include "doubly_linked_list.h"
+//#include "doubly_linked_list.h"
 
 // DATA AND STRUCT DEFINITION===========================================
 typedef struct _dinamic_stack {

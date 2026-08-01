@@ -5,6 +5,7 @@
 #include "static_stack.h"
 #include "dinamic_stack.h"
 #include "static_queue.h"
+#include "dinamic_queue.h"
 
 int main(void) {
 
@@ -173,6 +174,32 @@ int main(void) {
 	puts("");
 	*/
 	
+// DINAMIC QUEUE TEST===================================================
+	/*
+	DinamicQueue* DQueue1 = DinamicQueue_create();
+	
+	DinamicQueue_enqueue(DQueue1, 5);
+	DinamicQueue_enqueue(DQueue1, 10);
+	DinamicQueue_enqueue(DQueue1, 15);
+	DinamicQueue_enqueue(DQueue1, 20);
+	DinamicQueue_enqueue(DQueue1, 25);
+	DinamicQueue_enqueue(DQueue1, 30);
+	DinamicQueue_print(DQueue1);
+	puts("");
+	
+	int val = DinamicQueue_peek(DQueue1);
+	printf("peek: %d\n", val);
+	
+	DinamicQueue_dequeue(DQueue1);
+	DinamicQueue_dequeue(DQueue1);
+	DinamicQueue_print(DQueue1);
+	puts("");
+	
+	DinamicQueue_destroy(&DQueue1);
+	DinamicQueue_print(DQueue1);
+	puts("");
+	*/	
+
 	return 0;
 }
 

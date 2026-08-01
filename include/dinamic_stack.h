@@ -2,6 +2,7 @@
 #define DINAMIC_STACK_H
 
 #include "ds_status.h"
+#include "doubly_linked_list.h"
 
 //STRUCTS AND DATATYPES
 typedef struct _dinamic_stack DinamicStack;
